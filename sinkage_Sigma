@@ -1,6 +1,6 @@
 function sig = sinkage_sigma(sigma, tk)
 
-% A
+% ^
 % |
 % |
 % |
@@ -15,10 +15,12 @@ sig = zeros(n1, n2);
 %calculates the number of non-zero entries in sigma. 
 %i.e. in thecase where sigma is a diag matrix whos entries are the singular values, 
 %n is just the number of non-zero singular values 
-n = length(find(sigma > 0));
+
+	n = length(find(sigma > 0));
 
 
-%NOTE: this section is calculating the shrinkage sigma. Refer to example in slideshow:
+%NOTE: this section is calculating the shrinkage of sigma. Refer to example in slideshow,
+%that is it is proximal mapping:
 %---------------------------------------------------
 for i=1:n
     if sigma(i, i) >= tk
